@@ -50,23 +50,6 @@ class UserBot {
                             break;
 
                         default:
-                            try {
-                                if (paymentProcessHelper.getUserAction(chatId) === 'input') {
-                                    const payments = paymentProcessHelper.getUserPayments(chatId);
-                                    console.log('payments :>> ', payments);
-                                    const payment = payments[payments.length - 1];
-                                    const sum = +query;
-
-                                    if (!isNaN(sum) && sum >= 500 && sum <= 10000000) {
-                                        console.log(chatId, sum);
-                                        console.log([sum, payments.length - 1]);
-                                        callbackController.payment(payment.message, bot, ['waiting', sum, payments.length - 1]);
-                                        paymentProcessHelper.setUserAction(chatId, 'waiting');
-                                    }
-                                }
-                            } catch (error) {
-                                console.log(error.stack);
-                            }
                             break;
                     }
                 }

@@ -1,10 +1,3 @@
-// import { adminBot } from '../../admin_bot/index.js';
-// import paymentProcessHelper from '../../db/helpers/payment.process.helper.js';
-// import paymentService from '../../db/services/Payment.service.js';
-// import config from '../../config/config.js';
-// import screener from '../../screener/index.js';
-// import userService from '../../db/services/User.service.js';
-
 import managerService from '../../db/services/Manager.service.js';
 import orderService from '../../db/services/Order.service.js';
 
@@ -125,12 +118,10 @@ class CallbackController {
                 );
                 return;
             }
-            // console.log('ordersList :>> ', ordersList);
 
             const chunkOrdersList = chunkOrders(ordersList, 2);
 
             const orders = chunkOrdersList[page];
-            // console.log('chunkOrdersList :>> ', chunkOrdersList);
 
             if (!orders) return;
 
@@ -203,7 +194,7 @@ class CallbackController {
                 );
                 return;
             }
-            console.log('ordersList :>> ', ordersList);
+            
             if(ordersList.length > 5) {
                 ordersList = ordersList.splice(ordersList.length-5, 5);
             }
